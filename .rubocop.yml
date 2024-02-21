@@ -1,0 +1,61 @@
+# install gems outside of bundler
+# gem install rubocop
+# gem install rubocop-rspec
+# gem install rubocop-rails
+# gem install rubocop-performance
+# gem install rubocop-rake
+#
+# Automatically correct
+# rubocop --auto-correct, or rubocop -a
+#
+# Run only lint checks
+# rubocop --lint
+#
+# Generate a configuration file acting as a TODO list. This file is called .rubocop_todo.yml
+# rubocop --auto-gen-config
+#
+# CLI command reference help
+# rubocop --help
+require:
+  - rubocop-rspec
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-factory_bot
+
+AllCops:
+  NewCops: enable
+  DisplayCopNames: true
+  TargetRubyVersion: 3.2.2
+  Include:
+    - '**/*.rb'
+    - '**/*.axlsx'
+    - '**/*.gemfile'
+    - '**/*.gemspec'
+    - '**/*.rabl'
+    - '**/*.rake'
+    - '**/*.ru'
+    - '**/*.ruby'
+    - '**/*.spec'
+    - '**/.irbrc'
+    - '**/.pryrc'
+    - '**/Gemfile'
+    - '**/Guardfile'
+
+  Exclude:
+    - "gemfiles/**/*"
+    - "lib/generators/**/*"
+    - '.git/**/*'
+    - 'app/views/**/*'
+    - 'bin/*'
+    - 'db/migrate/*'
+    - 'db/schema.rb'
+    - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'public/**/*'
+    - 'scripts/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+
+Style/Documentation:
+  Enabled: false
