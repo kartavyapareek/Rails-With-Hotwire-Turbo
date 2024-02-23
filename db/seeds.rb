@@ -1,8 +1,16 @@
 # frozen_string_literal: true
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+
+person_data = JSON.parse(File.read('db/seeds/data.json'))
+
+person_data.each do |person|
+  email = person.dig('info', 'email')
+  p = Person.find_or_create_by(email:)
+  data = {
+    title: person.dig('info', 'title'),
+    name: person['name'],
+    phone: person.dig('info', 'phone'),
+    age: person.dig('info', 'age'),
+    person_id: p.id
+  }
+  Detail.find_or_create_by(data)
+end
