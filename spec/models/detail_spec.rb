@@ -23,7 +23,7 @@ RSpec.describe Detail do
 
     it 'is destroyed when the associated person is destroyed' do
       described_class.new(name: 'John Doe', person:)
-      expect { person.destroy }.to change(described_class, :count).by(0)
+      expect { person.destroy }.not_to change(described_class, :count)
     end
   end
 end
