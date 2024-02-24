@@ -1,0 +1,6 @@
+<%= turbo_frame_tag "person_details" do %>
+  <h1 class="text-white"><%= person&.email %></h1>
+  <p class="text-white">Name : <%= person&.detail&.title %> <%= person&.detail&.name %></p>
+  <p class="text-white">Age : <%= person&.detail&.age %></p>
+  <p class="text-white">Phone : <%= person&.detail&.phone %></p>
+<% end %>

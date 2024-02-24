@@ -1,0 +1,19 @@
+<div class="flex h-screen">
+  <!-- Left Section -->
+  <div class="w-1/2 bg-blue-500 p-8">
+      <!-- Content for the left section goes here -->
+      <h1 class="text-white text-4xl font-bold">Email Addresses</h1>
+      <p class="text-white">
+      <% @people.each do |person| %>
+        <%= link_to person.email, full_detail_person_path(person), remote: true %><br>
+      <% end %>
+      </p>
+  </div>
+
+  <!-- Right Section -->
+  <div class="w-1/2 bg-green-500 p-8">
+      <!-- Content for the right section goes here -->
+      <h1 class="text-white text-4xl font-bold">Person Details</h1>
+      <%= render partial: "detail", locals: { person: nil } %>
+  </div>
+</div>
